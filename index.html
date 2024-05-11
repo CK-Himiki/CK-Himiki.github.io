@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thermopol</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src = "myscr/index.js"></script>
+</head>
+<body>
+	<h1 > Thermopol </h1>
+	<br>
+	<section class="container log-container" style="background-color: white">
+		<div class="row">
+			<input class = "input-w glook" id ="login-inp" name= "USER_login" placeholder = "Логин"> </input>
+			<input class = "input-w glook" id ="password-inp" type = "password" name= "USER_password" placeholder = "Пароль"></input>
+		</div>
+		<div class="row">
+			<div class ="col-md-6">
+				<button class = "btn-default sect-buttons" onclick="LogT()" type="button" id = "login-button" >
+				Войти
+				</button>
+			</div>
+			<div class ="col-md-6">
+				<button class = "btn-default sect-buttons" onclick="NoLog()"type="button" id = "no-register-button" >
+				Без регистрации
+				</button>
+			</div>
+		</div>
+	</section>
+	<br>
+</body>
+</html>
