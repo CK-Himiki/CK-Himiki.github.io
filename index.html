@@ -6,30 +6,57 @@
 	<title>Thermopol</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="mycss/main.css">
 	<script src = "myscr/index.js"></script>
 </head>
 <body>
-	<h1 > Thermopol </h1>
-	<br>
-	<section class="container log-container" style="background-color: white">
-		<div class="row">
-			<input class = "input-w glook" id ="login-inp" name= "USER_login" placeholder = "Логин"> </input>
-			<input class = "input-w glook" id ="password-inp" type = "password" name= "USER_password" placeholder = "Пароль"></input>
+	<div class="box-all  margin-bottom:200px;" >
+		<h1> Thermopol </h1> 
+		<div style="flex-basis: 100%; height: 0;"></div>
+		<section class="box log-container" style="background-color: white">
+			
+				<div class="row">
+					<input class = "input-w glook" id ="login-inp" name= "USER_login" placeholder = "Логин"> </input>
+					<input class = "input-w glook" id ="password-inp" type = "password" name= "USER_password" placeholder = "Пароль"></input>
+				</div>
+				<div class="row">
+					<div class ="col-md-6">
+						<button class = "btn sect-buttons" onclick="LogT()" type="button" id = "login-button" >
+						Войти
+						</button>
+					</div>
+					<div class ="col-md-6">
+						<button class = "btn sect-buttons " onclick="NoLog()"type="button" id = "no-register-button" >
+						Гостевой режим
+						</button>
+					</div>
+				</div>
+			
+		</section>
+
+		
+		
+	</div>
+	<br> 
+	<div class="footer row" style="background-color: #71D0EE;  margin: 0px;" >
+	
+		<div class="col-12 col-sm-6 col-md-6">
+				<p style="text-align: center; color: white; padding-top: 5%;">
+					Термодинамическая база данных ННГУ, 2024 Проект реализован Университетом  Лобачевского совместно с IT-академией Lad  в рамках проекта "Цифровые кафедры".
+				</p>
 		</div>
-		<div class="row">
-			<div class ="col-md-6">
-				<button class = "btn-default sect-buttons" onclick="LogT()" type="button" id = "login-button" >
-				Войти
-				</button>
-			</div>
-			<div class ="col-md-6">
-				<button class = "btn-default sect-buttons" onclick="NoLog()"type="button" id = "no-register-button" >
-				Без регистрации
-				</button>
-			</div>
+		
+		<div class=" col-6 col-sm-3 col-md-3 order-sm-first order-md-first" >
+				<div class="img-responsive image-box">
+					<img src="https://i.pinimg.com/564x/07/67/34/0767341a1732cc111cccf87fa0f16113.jpg" style="object-fit: cover;">
+				</div>
 		</div>
-	</section>
-	<br>
+		
+		<div class="col-6 col-sm-3 col-md-3" >
+				<div class="img-responsive image-box" >
+					<img src="https://i.pinimg.com/564x/7e/a7/21/7ea721d02e4ca99c998a2efed6d65537.jpg" style="object-fit:cover;">
+				</div>
+		</div>
+	</div>
 </body>
 </html>

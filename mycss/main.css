@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*! шрифт!*/ 
+body {
+	background-color: #13b1e3;
+	/*! для моб устр!*/ 
+	-webkit-font-soothing: antialiased;
+	-webkit-overflow-scrolling: touch; /*!выравнивание по оси x*/
+	font-family: "Roboto";
+	overflow-y: scroll;
+	background-size: 100% auto;
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+a {
+	color: #13b1e3;
+	font-size: 0.8em;
+}
+a:hover, a:focus {
+	color:#13b1e3;
+	text-decoration:none;
+	outline:0;
+	
+}
+
+
+
+h1 {
+	font-size: 3rem;
+	font-weight: bold;
+	text-align:center;
+	font-style:italic;
+	color: #ffffff;
+	min-height: 100%;
+}
+
+
+
+.log-container{
+	background-color: white;
+	background-size: cover;
+	border-radius: 15px;
+	width: 80%;
+	min-height:50%;
+	max-height:auto;
+	padding: 30px;
+	/*!align-items: center;выравнивание по оси y*/
+}
+
+
+.glook {
+	margin: 0 auto;
+}
+
+.input-w {
+	border-color:#13b1e3;
+	border-width: 1px;
+	background-color: #E8F0FE;
+	color:#13b1e3;
+	width: 100%;
+	height: 2.5em;
+	margin-bottom:1em;
+}
+
+::-webkit-input-placeholder{
+		color:#13b1e3;
+}
+.box-all{
+	display:flex; 
+	justify-content:center; 
+	flex-wrap:wrap;
+	padding:10%;
+	margin-bottom: 1vh;
+}
+
+.sect-buttons{
+	overflow: hidden;
+	background-color:#13b1e3;
+	width:100%;
+	margin-top: 1em;
+	height: 2.5em;
+	border-radius: 15px;
+	border-width:0;
+	color:white;
+	font-size:1.2em;
+	font-weight:2em;
+	height:80%;
+}
+
+.sect-buttons:active{
+	background-color:#4682B4;
+	transition:color 0s;
+}
+
+.footer {
+	bottom: 0!important;
+	width: 100%!important;
+	background-color: #71D0EE;
+	height: auto;
+	margin-top: auto;
+	float:  block-end ;
+}
+.image-box{
+	width:auto;
+	height: auto;
+	max-width: 100%;
+	text-align: center;
+	padding: 5%;
+	padding-top: 10%;
+}
+
+img{
+	width:auto;
+	height: auto;
+	max-width: 100px;
+	max-height: 100px;
+}
+

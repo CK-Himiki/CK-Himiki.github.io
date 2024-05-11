@@ -6,9 +6,60 @@
 	<title>Thermopol2</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/firstpage.css">
+	<link rel="stylesheet" href="mycss/firstpage.css">
 </head>
 <body>
-	<h1 > первая страница после входа в акк</h1>
+	
+	<div class="navbar" id="menu-nawbar" onclick="MenuOpen()"> 
+		<div style="display: flex; justify-content: center; ">
+			<div class="btn-list" style="flex-wrap: wrap;" id="button-list">
+				<button class="menu-btn">
+					Личный кабинет
+				</button>
+				<button class="menu-btn">
+					База данных
+				</button>
+				<button class="menu-btn">
+					Калькулятор
+				</button>
+				<button class="menu-btn">
+					Добавить вещество
+				</button>
+				<button class="menu-btn exit-btn" onclick="location.href='index.html';">
+					Выход
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<!--footer time-->
+
+	<div class="footer row" style="background-color: #71D0EE;  margin: 0px;" >
+		
+		<div class="col-12 col-sm-6 col-md-6">
+				<p style="text-align: center; color: white; padding-top: 5%;">
+					Термодинамическая база данных ННГУ, 2024 Проект реализован Университетом  Лобачевского совместно с IT-академией Lad  в рамках проекта "Цифровые кафедры".
+				</p>
+		</div>
+		
+		<div class=" col-6 col-sm-3 col-md-3 order-sm-first order-md-first" >
+				<div class="img-responsive image-box">
+					<img src="https://i.pinimg.com/564x/07/67/34/0767341a1732cc111cccf87fa0f16113.jpg" style="object-fit: cover;">
+				</div>
+		</div>
+		
+		<div class="col-6 col-sm-3 col-md-3" >
+				<div class="img-responsive image-box" >
+					<img src="https://i.pinimg.com/564x/7e/a7/21/7ea721d02e4ca99c998a2efed6d65537.jpg" style="object-fit:cover;">
+				</div>
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src = "myscr/firstpage.js"></script>
 </body>
 </html>
