@@ -16,3 +16,12 @@ async function LogT(){
 async function NoLog(){
 	window.location.href = 'nologfirstpage.html';
 }
+
+function FooterDown(){
+let h = document.documentElement.offsetHeight - document.querySelector('.box-all').offsetHeight;
+h-=  document.querySelector('.footer').offsetHeight;
+console.log(h);
+document.querySelector('.footer').style['margin-top'] = h+"px";
+}
+
+FooterDown();

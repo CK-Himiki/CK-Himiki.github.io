@@ -113,10 +113,15 @@ h1 {
 	padding-top: 10%;
 }
 
-img{
+.mimg{
 	width:auto;
 	height: auto;
 	max-width: 100px;
 	max-height: 100px;
 }
 
+.lg-container{
+	width: auto;
+	height: 4em;
+	text-align: center;
+}
