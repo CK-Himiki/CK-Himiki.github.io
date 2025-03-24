@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+    <style>
+        .choice-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .choice-button {
+            padding: 15px;
+            cursor: pointer;
+            background: #2c3e50;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .choice-button:hover {
+            background: #3498db;
+            transform: scale(1.05);
+        }
+        #radarChart {
+            width: 600px;
+            height: 600px;
+            margin: 40px auto;
+        }
+        .question-text {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .results-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .radar-description {
+            max-width: 300px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Вопросы 1-30 (оставлены без изменений) -->
+            <!-- ... -->
+             <!-- Вопрос 1 -->
+            <section>
+                <div class="question-text">1. Как вы ведете себя в большой компании?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Стараюсь быть в центре внимания</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Слежу за правилами</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Наблюдаю издалека</button>
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Шучу и заряжаю энергией</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 2 -->
+            <section>
+                <div class="question-text">2. Ваша реакция на неожиданные изменения планов?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Злюсь и требую контроль</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Ищу скрытые причины</button>
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Радуюсь возможностям</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Тревожусь молча</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 3 -->
+            <section>
+                <div class="question-text">3. Что вы цените в друзьях больше всего?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Восхищение успехами</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Надежность</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Общие цели</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Поддержку</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 4 -->
+            <section>
+                <div class="question-text">4. Как вы принимаете важные решения?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Доверяю интуиции</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Анализирую риски</button>
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Действую импульсивно</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Следую плану</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 5 -->
+            <section>
+                <div class="question-text">5. Ваше отношение к критике?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Обижаюсь</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Требую аргументов</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Ищу скрытый смысл</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Переживаю в одиночестве</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 6 -->
+            <section>
+                <div class="question-text">6. Как вы проводите свободное время?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">В соцсетях</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Упорядочиваю дела</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Читаю или занимаюсь хобби</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Общаюсь с близкими</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 7 -->
+            <section>
+                <div class="question-text">7. Что для вас самое страшное?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Быть незамеченным</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Потерять контроль</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Проиграть</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Остаться в одиночестве</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 8 -->
+            <section>
+                <div class="question-text">8. Как вы ведете себя в конфликте?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Устраиваю сцены</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Настаиваю на справедливости</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Анализирую ситуацию</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Уступаю</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 9 -->
+            <section>
+                <div class="question-text">9. Ваше отношение к риску?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Обожаю рисковать</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Рискую после расчета</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Рискую ради цели</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Избегаю риска</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 10 -->
+            <section>
+                <div class="question-text">10. Как вы проявляете любовь?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Через яркие жесты</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Через заботу</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Через достижения</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Через нежность</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 11 -->
+            <section>
+                <div class="question-text">11. Что вы думаете о правилах?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Часто нарушаю</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Строго соблюдаю</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Использую в своих целях</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Игнорирую</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 12 -->
+            <section>
+                <div class="question-text">12. Как вы реагируете на стресс?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Жалуюсь</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Составляю план</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Ищу угрозы</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Замыкаюсь</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 13 -->
+            <section>
+                <div class="question-text">13. Что важнее в работе?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Возможность выделиться</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Четкие инструкции</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Карьерный рост</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Дружеская атмосфера</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 14 -->
+            <section>
+                <div class="question-text">14. Как вы относитесь к искусству?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Я — произведение искусства</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Ценю технику</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Вижу инструмент влияния</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Воспринимаю через эмоции</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 15 -->
+            <section>
+                <div class="question-text">15. Ваша реакция на похвалу?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Требую больше</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Сомневаюсь</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Считаю заслуженной</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Смущаюсь</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 16 -->
+            <section>
+                <div class="question-text">16. Как вы ведете себя в незнакомом месте?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Знакомлюсь со всеми</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Изучаю правила</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Анализирую обстановку</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Чувствую себя неуютно</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 17 -->
+            <section>
+                <div class="question-text">17. Что вы делаете в моменты одиночества?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Скучаю по людям</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Планирую будущее</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Размышляю над идеями</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Пересматриваю фото</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 18 -->
+            <section>
+                <div class="question-text">18. Как вы тратите деньги?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">На статусные вещи</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Рационально</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">На инвестиции</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">На подарки</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 19 -->
+            <section>
+                <div class="question-text">19. Ваше отношение к спорам?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Доказываю эмоционально</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Требую логики</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Ищу слабые места</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Избегаю конфронтации</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 20 -->
+            <section>
+                <div class="question-text">20. Как вы относитесь к новым идеям?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Сразу действую</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Проверяю реалистичность</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Оцениваю пользу</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Поддерживаю, если добрые</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 21 -->
+            <section>
+                <div class="question-text">21. Что важнее в отношениях?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Страсть</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Стабильность</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Общие амбиции</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Эмоциональная близость</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 22 -->
+            <section>
+                <div class="question-text">22. Как вы реагируете на неудачу?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Виню других</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Анализирую ошибки</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Ищу пути исправления</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Плачу и переживаю</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 23 -->
+            <section>
+                <div class="question-text">23. Ваше отношение к будущему?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Оно должно быть ярким</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Его нужно планировать</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Я его построю</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Боюсь неизвестности</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 24 -->
+            <section>
+                <div class="question-text">24. Как вы ведете себя на публике?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Я — душа компании</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Контролирую каждое слово</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Наблюдаю за другими</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Стараюсь быть незаметным</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 25 -->
+            <section>
+                <div class="question-text">25. Что вы думаете о своих ошибках?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Стараюсь забыть</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Разбираю до мелочей</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Учусь на них</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Долго виню себя</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 26 -->
+            <section>
+                <div class="question-text">26. Как вы относитесь к монотонной работе?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Гипертим')">Добавляю креатив</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Наслаждаюсь порядком</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Автоматизирую процессы</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Терплю ради результата</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 27 -->
+            <section>
+                <div class="question-text">27. Ваша реакция на комплименты?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Требую больше</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Проверяю искренность</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Считаю закономерными</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Смущаюсь</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 28 -->
+            <section>
+                <div class="question-text">28. Как вы решаете сложные проблемы?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Прошу помощи</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Действую по инструкции</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Разрабатываю стратегию</button>
+                    <button class="choice-button" onclick="handleAnswer('Шизоид')">Жду, пока решится</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 29 -->
+            <section>
+                <div class="question-text">29. Что для вас важнее всего?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Внимание окружающих</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Контроль над ситуацией</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Достижение целей</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Гармония в отношениях</button>
+                </div>
+            </section>
+
+            <!-- Вопрос 30 -->
+            <section>
+                <div class="question-text">30. Какое качество вы цените в себе?</div>
+                <div class="choice-buttons">
+                    <button class="choice-button" onclick="handleAnswer('Истероид')">Харизму</button>
+                    <button class="choice-button" onclick="handleAnswer('Эпилептоид')">Ответственность</button>
+                    <button class="choice-button" onclick="handleAnswer('Параноял')">Целеустремленность</button>
+                    <button class="choice-button" onclick="handleAnswer('Эмотив')">Чувствительность</button>
+                </div>
+            </section>
+
+            <!-- Финальный слайд с диаграммой и описанием -->
+            <section>
+                <h2>Ваши результаты</h2>
+                <div class="results-container">
+                    <div id="radarChart"></div>
+                    <div class="radar-description" id="radarDescription">
+                        <!-- Здесь будет описание доминирующего радикала -->
+                    </div>
+                    <button onclick="refresh();Reveal.slide(0)" style="margin-top: 30px; padding: 10px 20px; cursor: pointer;">
+                        Пройти тест снова
+                    </button>
+                </div>
+                
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script>
+        // Инициализация reveal.js
+        Reveal.initialize({
+            controls: false,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide',
+            width: 1200,
+            height: 800
+        });
+
+        // Хранение результатов
+        const results = {
+            'Истероид': 0,
+            'Эпилептоид': 0,
+            'Параноял': 0,
+            'Гипертим': 0,
+            'Шизоид': 0,
+            'Эмотив': 0
+        };
+
+        // Описания радикалов
+        const descriptions = {
+            'Истероид': {
+                short: 'Драматичность, харизма, эгоцентризм',
+                full: 'Истероидный радикал характеризуется стремлением быть в центре внимания, яркостью и эмоциональностью. Такие люди часто драматизируют события и любят производить впечатление.'
+            },
+            'Эпилептоид': {
+                short: 'Контроль, порядок, дисциплина',
+                full: 'Эпилептоидный радикал отличается стремлением к порядку, контролю и дисциплине. Такие люди ценят стабильность и часто бывают педантичными.'
+            },
+            'Параноял': {
+                short: 'Целеустремленность, стратегия, амбиции',
+                full: 'Паранояльный радикал характеризуется целеустремленностью, стратегическим мышлением и амбициозностью. Такие люди часто ставят перед собой глобальные цели.'
+            },
+            'Гипертим': {
+                short: 'Энергия, оптимизм, импульсивность',
+                full: 'Гипертимный радикал отличается энергичностью, оптимизмом и импульсивностью. Такие люди часто действуют спонтанно и любят рисковать.'
+            },
+            'Шизоид': {
+                short: 'Интроверсия, аналитика, отстраненность',
+                full: 'Шизоидный радикал характеризуется интроверсией, аналитическим мышлением и отстраненностью. Такие люди часто погружены в свои мысли.'
+            },
+            'Эмотив': {
+                short: 'Чувствительность, эмпатия, тревожность',
+                full: 'Эмотивный радикал отличается чувствительностью, эмпатией и склонностью к тревожности. Такие люди часто переживают за других.'
+            }
+        };
+
+        // Обработка ответов
+        function handleAnswer(type) {
+            results[type]++;
+            Reveal.next();
+        }
+
+        // Инициализация диаграммы
+        function initChart() {
+            const categories = Object.keys(results);
+            const data = Object.values(results);
+
+            // Находим доминирующий радикал
+            const dominantRadical = Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
+
+            // Обновляем описание доминирующего радикала
+            document.getElementById('radarDescription').innerHTML = `
+                <h3>${dominantRadical}</h3>
+                <p>${descriptions[dominantRadical].full}</p>
+            `;
+
+            Highcharts.chart('radarChart', {
+                chart: {
+                    polar: true,
+                    type: 'line',
+                    width: 600,
+                    height: 600
+                },
+                title: {
+                    text: 'Результаты теста',
+                    style: { fontSize: '20px' }
+                },
+                pane: {
+                    size: '80%'
+                },
+                xAxis: {
+                    categories: categories,
+                    tickmarkPlacement: 'on',
+                    lineWidth: 0,
+                    labels: {
+                        style: { fontSize: '14px' }
+                    }
+                },
+                yAxis: {
+                    gridLineInterpolation: 'polygon',
+                    lineWidth: 0,
+                    min: 0,
+                    max: Math.max(...data) + 2,
+                    tickInterval: 2,
+                    labels: {
+                        style: { fontSize: '14px' }
+                    }
+                },
+                series: [{
+                    name: 'Результаты',
+                    data: data,
+                    pointPlacement: 'on',
+                    color: 'rgba(52, 152, 219, 0.8)',
+                    fillOpacity: 0.2
+                }]
+            });
+        }
+
+        function refresh(){
+            Object.keys(results).forEach((a)=> results[a]=0);
+        }
+
+        // Инициализация диаграммы при переходе на последний слайд
+        Reveal.on('slidechanged', event => {
+            if (event.indexh === 30) {
+                initChart();
+            }
+        });
+    </script>
+</body>
+</html>
