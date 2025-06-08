@@ -2,7 +2,7 @@
 
 ## ЧАСТЬ I: ЛИЧНОСТЬ: ВНУТРЕННИЕ КОДЫ
 
-- [Конформист,Бунтарь,Гений](./genius_conformist_rebel.html)
+- [Конформист,Бунтарь,Гений](https://ck-himiki.github.io/archetypes/genius_conformist_rebel.html)
 - Тень (Архетип)
 - Трикстер (Архетип)
 - Анима/Анимус (Архетипы)
